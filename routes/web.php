@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\ImageController;
 
 Route::get('/', [CustomerController::class, 'index'])
     ->middleware('auth');
@@ -67,6 +68,17 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [SessionController::class, 'create'])
     ->name('login');
-    
+
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
+
+
+
+///////////////// Image Upload Routes ///////////////////
+
+Route::middleware('auth')->group(function () {
+    Route::get('/images', [ImageController::class, 'index']);
+    Route::post('/image/upload', [ImageController::class, 'store'])->name('image.upload');
+    Route::get('/image/view/{id}', [ImageController::class, 'show'])
+        ->name('image.view')->middleware('auth');
+});
