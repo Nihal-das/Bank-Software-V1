@@ -1,12 +1,7 @@
 <x-layout>
     <x-slot:heading>My Images</x-slot:heading>
 
-    {{-- SUCCESS MESSAGE --}}
-    @if(session('success'))
-        <div class="mb-6 rounded-lg bg-emerald-600 px-4 py-3 text-white shadow">
-            {{ session('success') }}
-        </div>
-    @endif
+   <x-success-message/>  
 
     {{-- UPLOAD FORM --}}
     <div class="mb-10 rounded-xl bg-gray-900 p-6 shadow-lg border border-gray-800">
