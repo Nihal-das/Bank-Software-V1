@@ -74,7 +74,7 @@ class CustomerController extends Controller
             ->sum('debit');
 
         if ($customerBalance != 0) {
-            return back()->with('error', 'Cannot delete customer with balance amount');
+            return back()->with('error', 'Cannot delete customer with balance amount non zero');
         }
 
         $customer->delete();

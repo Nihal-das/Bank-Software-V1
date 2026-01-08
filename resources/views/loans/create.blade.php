@@ -33,7 +33,7 @@
 
 <div class="pt-8 pb-56">
     <h2 class="text-3xl font-semibold text-white text-center">
-        Loan 
+        Create Loan 
     </h2>
 
     <div class="max-w-xl rounded-xl border p-6 shadow align-center mx-auto mt-6 bg-gray-900 ">

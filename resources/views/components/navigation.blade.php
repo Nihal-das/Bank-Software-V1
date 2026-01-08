@@ -14,8 +14,8 @@
         {{-- NAVIGATION --}}
         <nav class="flex-1 space-y-6 overflow-y-auto pr-1">
 
-    {{-- HOME (ALWAYS VISIBLE) --}}
-    <a
+     @auth
+         <a
         href="{{ url('/') }}"
         class="block rounded-lg px-4 py-3 text-sm font-semibold tracking-wide
         transition-all duration-150
@@ -27,7 +27,7 @@
     </a>
 
     {{-- AUTHENTICATED USER MODULES --}}
-    @auth
+   
         <div class="space-y-2">
             @foreach($modules as $module)
 
