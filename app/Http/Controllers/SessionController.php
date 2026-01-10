@@ -29,6 +29,8 @@ class SessionController extends Controller
 
         request()->session()->regenerate();
 
+        // dd(session('nav_modules'));
+
         return redirect('/');
     }
 

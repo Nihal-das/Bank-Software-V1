@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Listeners\StoreNavMenu;
 use App\Models\Module;
 use App\Models\Permission;
+use App\Models\User;
+use App\Providers\AppServiceProvider;
 use App\Services\NavigationService;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
+
 
 class MenuController extends Controller
 {
@@ -40,15 +43,12 @@ class MenuController extends Controller
 
     public function refresh()
     {
-        Cache::put(
-            'nav_modules_user_' . Auth::id(),
-            app(NavigationService::class)->getModulesForUser(Auth::user()),
-            now()->addHours(2)
+        session()->put(
+            'nav_modules',
+            app(NavigationService::class)
+                ->getModulesForUser(Auth::user())
         );
 
         return redirect()->back()->with('success', 'Menu refreshed successfully');
     }
 }
-
-
-// ->away(url('/'));

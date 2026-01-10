@@ -7,7 +7,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 use Illuminate\Auth\Events\Login;
-use Illuminate\Support\Facades\Cache;
 
 class StoreNavMenu
 {
@@ -24,10 +23,6 @@ class StoreNavMenu
         $modules = $this->navigationService
             ->getModulesForUser($event->user);
 
-        Cache::put(
-            'nav_modules_user_' . $event->user->id,
-            $modules,
-            now()->addHours(2)
-        );
+        session()->put('nav_modules', $modules);
     }
 }

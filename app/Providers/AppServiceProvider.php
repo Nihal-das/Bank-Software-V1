@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $modules = Auth::check()
-                ? Cache::get('nav_modules_user_' . Auth::id(), collect())
+                ? session('nav_modules', collect())
                 : collect();
 
             $view->with('modules', $modules);

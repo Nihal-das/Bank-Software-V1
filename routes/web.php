@@ -11,6 +11,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KeyBoardController;
 
 Route::get('/', [CustomerController::class, 'index'])
     ->middleware('auth');
@@ -198,4 +199,7 @@ Route::post('/menu/order-update', [MenuController::class, 'updateOrder'])
 
 Route::get('/menu/refresh', [MenuController::class, 'refresh'])
     ->name('menu.refresh')
+    ->middleware('auth');
+
+Route::get('/keyboard/test', [KeyBoardController::class, 'show'])
     ->middleware('auth');

@@ -18,14 +18,14 @@
         </div>
 
         {{-- NAVIGATION --}}
-        <nav class="flex-1 space-y-6 overflow-y-auto pr-1">
+        <nav class="flex-1 space-y-5 overflow-y-auto pr-1">
 
             
 
      @auth
          <a
         href="{{ url('/') }}"
-        class="block rounded-lg px-4 py-3 text-sm font-semibold tracking-wide
+        class="block rounded-lg px-4 py-3 text-sm text-center font-semibold tracking-wide
         transition-all duration-150
         {{ request()->is('/')
             ? 'bg-white/10 text-white'
@@ -36,7 +36,7 @@
 
     {{-- AUTHENTICATED USER MODULES --}}
    
-        <div class="space-y-2">
+        <div class="space-y-1">
             @foreach($modules as $module)
 
                 <div x-data="{ open: false }" class="space-y-1">
@@ -44,7 +44,7 @@
                     <button
                         @click="open = !open"
                         class="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold
-                        text-gray-300 transition-all duration-200
+                        text-gray-300 transition-all duration-700 ease-in-out
                         hover:bg-white/10 hover:text-white"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -54,7 +54,7 @@
 
                         <svg
                             :class="open ? 'rotate-180 text-white' : 'text-gray-400'"
-                            class="h-4 w-4 transform transition-transform duration-200 group-hover:text-white"
+                            class="h-4 w-4 transform transition-transform duration-400 group-hover:text-white"
                             fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24"
                         >
@@ -63,7 +63,7 @@
                         </svg>
                     </button>
 
-                    <div x-show="open" x-collapse
+                    <div x-show="open" x-collapse.duration.9000ms x-transition.opacity
                          class="ml-3 space-y-1 border-l border-white/10 pl-3">
                         @foreach($module->permissions as $permission)
                             <a
@@ -93,7 +93,7 @@
     @guest
         <a
             href="{{ route('login') }}"
-            class="block rounded-md px-4 py-2 text-sm font-medium text-gray-300
+            class="block rounded-md px-4 py-2 text-sm text-center font-medium text-gray-300
             hover:bg-white/5 hover:text-white transition"
         >
             Login
@@ -101,7 +101,7 @@
 
         <a
             href="{{ route('register') }}"
-            class="block rounded-md px-4 py-2 text-sm font-medium text-gray-300
+            class="block rounded-md px-4 py-2 text-sm text-center font-medium text-gray-300
             hover:bg-white/5 hover:text-white transition"
         >
             Register
@@ -113,7 +113,7 @@
             @csrf
             <button
                 type="submit"
-                class="w-full rounded-md px-4 py-2 text-left text-sm font-medium
+                class="w-full rounded-md px-4 py-2 text-center text-sm font-medium
                 text-gray-300 hover:bg-red-500/10 hover:text-red-400 transition"
             >
                 Logout
