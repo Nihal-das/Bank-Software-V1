@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('route');
+            $table->string('route-name');
             $table->foreignIdFor(Module::class);
             $table->integer('type')->default(1); // 1=menu, 3=permission, etc
             $table->integer('sort_order');

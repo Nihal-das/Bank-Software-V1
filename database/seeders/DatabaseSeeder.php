@@ -34,30 +34,30 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Permission::factory()->createMany([
-            ['name' => 'Customer create', 'route' => '/customer', 'type' => 1, 'module_id' => 1, 'sort_order' => 1],
-            ['name' => 'Customer view', 'route' => '/customers', 'type' => 1, 'module_id' => 1, 'sort_order' => 2],
-            ['name' => 'Customer delete', 'route' => '/customer/{customer}/delete', 'type' => 2, 'module_id' => 1, 'sort_order' => 3],
+            ['name' => 'Customer create', 'route' => '/customer', 'route_name' => 'customer.create', 'type' => 1, 'module_id' => 1, 'sort_order' => 1],
+            ['name' => 'Customer view', 'route' => '/customers', 'route_name' => 'customer.show_all', 'type' => 1, 'module_id' => 1, 'sort_order' => 2],
+            ['name' => 'Customer delete', 'route' => '/customer/{customer}/delete', 'route_name' => 'customers.delete', 'type' => 2, 'module_id' => 1, 'sort_order' => 3],
 
 
-            ['name' => 'Transaction create', 'route' => '/transactions', 'type' => 1, 'module_id' => 2, 'sort_order' => 1],
-            ['name' => 'Loan create', 'route' => '/loans/create', 'type' => 1, 'module_id' => 2, 'sort_order' => 2],
-            ['name' => 'Loan repay', 'route' => '/loans/repay', 'type' => 1, 'module_id' => 2, 'sort_order' => 3],
-            ['name' => 'High Deposit', 'route' => 'high-deposit', 'type' => 3, 'module_id' => 2, 'sort_order' => 4],
-
-
-
-            ['name' => 'Role view', 'route' => '/roles/view-all', 'type' => 1, 'module_id' => 3, 'sort_order' => 1],
-            ['name' => 'Role create', 'route' => '/roles', 'type' => 1, 'module_id' => 3, 'sort_order' => 2],
-            ['name' => 'Role delete', 'route' => '/roles/delete/{role}', 'type' => 2, 'module_id' => 3, 'sort_order' => 3],
-            ['name' => 'Role update', 'route' => '/roles/edit/{role}', 'type' => 2, 'module_id' => 3, 'sort_order' => 4],
+            ['name' => 'Transaction create', 'route' => '/transactions', 'route_name' => 'transactions.create', 'type' => 1, 'module_id' => 2, 'sort_order' => 1],
+            ['name' => 'Loan create', 'route' => '/loans/create', 'route_name' => 'loans.create', 'type' => 1, 'module_id' => 2, 'sort_order' => 2],
+            ['name' => 'Loan repay', 'route' => '/loans/repay', 'route_name' => 'loans.repay', 'type' => 1, 'module_id' => 2, 'sort_order' => 3],
+            ['name' => 'High Deposit', 'route' => 'high-deposit', 'route_name' => 'NULL', 'type' => 3, 'module_id' => 2, 'sort_order' => 4],
 
 
 
-            ['name' => 'User view', 'route' => '/users/show-all', 'type' => 1, 'module_id' => 4, 'sort_order' => 1],
-            ['name' => 'User create', 'route' => '/user/create', 'type' => 1, 'module_id' => 4, 'sort_order' => 2],
-            ['name' => 'User dashboard', 'route' => '/dashboard', 'type' => 1,   'module_id' => 4, 'sort_order' => 3],
+            ['name' => 'Role view', 'route' => '/roles/view-all', 'route_name' => 'roles.view_all', 'type' => 1, 'module_id' => 3, 'sort_order' => 1],
+            ['name' => 'Role create', 'route' => '/roles', 'route_name' => 'roles.create', 'type' => 1, 'module_id' => 3, 'sort_order' => 2],
+            ['name' => 'Role delete', 'route' => '/roles/delete/{role}', 'route_name' => 'roles.delete', 'type' => 2, 'module_id' => 3, 'sort_order' => 3],
+            ['name' => 'Role update', 'route' => '/roles/edit/{role}', 'route_name' => 'roles.update', 'type' => 2, 'module_id' => 3, 'sort_order' => 4],
+
+
+
+            ['name' => 'User view', 'route' => '/users/show-all', 'route_name' => 'users.show_all', 'type' => 1, 'module_id' => 4, 'sort_order' => 1],
+            ['name' => 'User create', 'route' => '/user/create', 'route_name' => 'users.create', 'type' => 1, 'module_id' => 4, 'sort_order' => 2],
+            ['name' => 'User dashboard', 'route' => '/dashboard', 'route_name' => 'dashboard', 'type' => 1,   'module_id' => 4, 'sort_order' => 3],
             ['name' => 'Image Upload', 'route' => '/images', 'type' => 1,   'module_id' => 4, 'sort_order' => 4],
-            ['name' => 'User delete', 'route' => '/user/delete/{user}', 'type' => 2,   'module_id' => 4, 'sort_order' => 5],
+            ['name' => 'User delete', 'route' => '/user/delete/{user}', 'route_name' => 'users.delete', 'type' => 2,   'module_id' => 4, 'sort_order' => 5],
         ]);
     }
 }
