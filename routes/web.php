@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalculatorController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CustomerController;
@@ -203,3 +204,12 @@ Route::get('/menu/refresh', [MenuController::class, 'refresh'])
 
 Route::get('/keyboard/test', [KeyBoardController::class, 'show'])
     ->middleware('auth');
+
+
+////////Claculator///////////////////////////
+
+Route::get('/calculator/show', [CalculatorController::class, 'show'])
+    ->name('calculator.show');
+
+Route::post('/calculator/show', [CalculatorController::class, 'calculate'])
+    ->name('calculator.calculate');

@@ -30,7 +30,7 @@ class CustomerController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|string|regex:/^[\p{L}\p{N}\p{P}\p{Z}]+$/u',
             'Phone' => 'required|digits:10'
         ]);
 
