@@ -18,9 +18,10 @@
             </a>
         </div>
 
+        
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @foreach($users as $user)
-            
+            <a href={{ route('user.update', $user->id) }}>
             <div class="rounded-lg border border-gray-700 bg-gray-800 p-6 shadow transition transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:bg-gray-700 hover:cursor-pointer hover:text-blue-300">
                     <h2 class="text-xl font-semibold text-white mb-2">{{ $user->name }}</h2>
                     <p class="text-gray-300 mb-1">{{ $user->description }}</p>

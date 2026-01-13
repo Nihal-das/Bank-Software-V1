@@ -54,6 +54,26 @@ class UserController extends Controller
         return view('users.view_all_users', ['users' => $users]);
     }
 
+    public function edit_form(User $user)
+    {
+        return view('users.update', ['user' => $user]);
+    }
+
+    public function update(User $user, Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|regex:/^[\p{L}\p{N}\p{P}\p{Z}]+$/u',
+        ]);
+
+        $user->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->back()->with('success', 'Customer Updated Successfully');
+    }
+
+
     public function destroy(User $user)
     {
 

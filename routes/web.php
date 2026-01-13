@@ -196,6 +196,15 @@ Route::controller(UserController::class)->group(function () {
         ->middleware('permission:/users/show-all')
         ->middleware('auth');
 
+    Route::get('/user/update/{user}', 'edit_form')
+    ->name('user.edit_form')
+    ->middleware('auth')
+    ->middleware('permission:/user/update/{user}');
+
+    Route::patch('/user/update/{user}', 'update')
+        ->name('user.update')
+        ->middleware('auth');
+
     Route::delete('/user/delete/{user}', 'destroy')
         ->name('users.delete')
         ->middleware('permission:/user/delete')
