@@ -28,6 +28,7 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->ip());
 
         $request->validate([
             'name' => 'required|min:3|string|regex:/^[\p{L}\p{N}\p{P}\p{Z}]+$/u',
